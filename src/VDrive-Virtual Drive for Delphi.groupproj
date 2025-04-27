@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CA8DE149-8D25-44F6-B501-40E31858727A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\..\src\VDrive.Deps.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\examples\Testbed\Testbed.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VDrive_Deps">
+        <MSBuild Projects="..\..\src\VDrive.Deps.dproj"/>
+    </Target>
+    <Target Name="VDrive_Deps:Clean">
+        <MSBuild Projects="..\..\src\VDrive.Deps.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VDrive_Deps:Make">
+        <MSBuild Projects="..\..\src\VDrive.Deps.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Testbed">
+        <MSBuild Projects="..\examples\Testbed\Testbed.dproj"/>
+    </Target>
+    <Target Name="Testbed:Clean">
+        <MSBuild Projects="..\examples\Testbed\Testbed.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Testbed:Make">
+        <MSBuild Projects="..\examples\Testbed\Testbed.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VDrive_Deps;Testbed"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VDrive_Deps:Clean;Testbed:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VDrive_Deps:Make;Testbed:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

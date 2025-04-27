@@ -98,6 +98,7 @@ begin
     LStringList.Free();
   end;
 
+  // Create a new text file with some text and displaying it back (file02.txt)..
   WriteLn;
   WriteLn('Create a new text file with some text and displaying it back (file02.txt)..');
   TFile.WriteAllText(vdPath('file02.txt'), 'Hello Virtual Drive!');
@@ -115,6 +116,9 @@ procedure RunTests();
 var
   LNum: Integer; // Variable to hold the selected test number
 begin
+  WriteLn('VDrive v', vdVersion());
+  WriteLn;
+
   // Assign the test number
   LNum := 01;
 

@@ -94,6 +94,17 @@ interface
 /// </example>
 function vdPath(const AFilename: string): string;
 
+/// <summary>
+///   Retrieves the version string of the VDrive library.
+///   This function returns a human-readable version identifier, which can be
+///   used for display purposes, logging, compatibility checks, or diagnostics.
+/// </summary>
+/// <returns>
+///   A string representing the current version of the VDrive library.
+///   Typically formatted as 'major.minor.patch' (for example, '1.0.0').
+/// </returns>
+function vdVersion(): string;
+
 implementation
 
 uses
@@ -110,6 +121,11 @@ function vdPath(const AFilename: string): string;
 begin
   Result := TPath.Combine(TPath.Combine(TPath.GetDirectoryName(ParamStr(0)),
     CVDir), AFilename);
+end;
+
+function vdVersion(): string;
+begin
+  Result := '0.1.0';
 end;
 
 { =========================================================================== }

@@ -61,10 +61,11 @@ var
 begin
   // Check if the virtual drive path exists
   if TDirectory.Exists(vdPath('')) then
-    Writeln('Virtual Path exists');
+    Writeln('Virtual Path exists!');
 
   // Create a TStringList to store sample items
-  WriteLn('Create a TStringList to store sample items on virtual drive..');
+  WriteLn;
+  WriteLn('Create a TStringList to store sample items on virtual drive (file01.txt)..');
   LStringList := TStringList.Create();
   try
     // Add items to the list
@@ -73,21 +74,19 @@ begin
     LStringList.Add('item 3');
 
     // Save the list contents to a file on the virtual drive
-    LStringList.SaveToFile(vdPath('test.txt'));
+    LStringList.SaveToFile(vdPath('file01.txt'));
   finally
     // Free the TStringList instance to avoid memory leaks
     LStringList.Free();
   end;
 
-  // Pause the console to allow the user to proceed
-  Pause();
-
   // Create a new TStringList to load file contents
-  WriteLn('Create a new TStringList to load file contents from virtual drive..');
+  WriteLn;
+  WriteLn('Create a new TStringList to load file contents from virtual drive (file01.txt)..');
   LStringList := TStringList.Create();
   try
     // Load the previously saved file from the virtual drive
-    LStringList.LoadFromFile(vdPath('test.txt'));
+    LStringList.LoadFromFile(vdPath('file01.txt'));
 
     // Iterate over each line and display it on the console
     for S in LStringList do
@@ -98,6 +97,12 @@ begin
     // Free the TStringList instance to release memory
     LStringList.Free();
   end;
+
+  WriteLn;
+  WriteLn('Create a new text file with some text and displaying it back (file02.txt)..');
+  TFile.WriteAllText(vdPath('file02.txt'), 'Hello Virtual Drive!');
+  Writeln(TFile.ReadAllText(vdPath('file02.txt')));
+
 end;
 
 { -----------------------------------------------------------------------------

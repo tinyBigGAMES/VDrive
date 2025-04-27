@@ -40,7 +40,7 @@ When your application terminates, the entire virtual filesystem is automatically
 
 ```pascal
 uses
-  System.Classes, System.SysUtils, System.IOUtils, Winapi.Windows;
+  System.Classes, System.SysUtils, System.IOUtils, Winapi.Windows, VDrive;
 
 procedure LoadDllFromResource;
 var

@@ -121,8 +121,7 @@ See the [📜 LICENSE](https://github.com/tinyBigGAMES/VDrive?tab=BSD-3-Clause-1
 
 ---
 
-🚀 Take full control of your Delphi app’s resources with **VDrive** —  
-**Clean. Secure. Invisible. Fast.**
+🚀 Take full control of your Delphi app’s resources with **VDrive** — **Clean. Secure. Invisible. Fast.**
 
 <p align="center">
 <img src="media/delphi.png" alt="Delphi">
